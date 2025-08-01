@@ -16,23 +16,23 @@
 Stack := Object clone do(
 
   // ------------------------------------------------
-  // Base is a list
+  // Internal base is a list
   lst := List clone
 
   // ------------------------------------------------
-  // Size of the list
+  // Size of the internal list
   size := method(return lst size)
 
   // ------------------------------------------------
-  // Push element of the list
+  // Push element on the stack
   push := method(v, lst append(v))
 
   // ------------------------------------------------
-  // Drop element of the list
+  // Drop element from the stack
   drop := method(lst := lst remove(lst at(lst size-1)))
 
   // ------------------------------------------------
-  // Pop element of the list
+  // Pop element of the stack
   pop := method(
     if(lst size != 0, 
       l := lst last
