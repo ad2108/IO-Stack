@@ -160,6 +160,18 @@ Stack := Object clone do(
   )
 
   // ------------------------------------------------
+  // Tuck second element 
+  tuck := method(
+    if(lst size >= 2,
+      l1 := self pop
+      self dup
+      lst append(l1)
+
+      Exception raise("Stack underflow")
+    )
+  )
+
+  // ------------------------------------------------
   // Count elements in stack 
   count := method(self size)
 
