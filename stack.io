@@ -17,7 +17,7 @@ Stack := Object clone do(
 
   // ------------------------------------------------
   // Internal base is a list
-  lst := List clone
+  lst := list()
 
   // ------------------------------------------------
   // Size of the internal list
@@ -29,7 +29,7 @@ Stack := Object clone do(
 
   // ------------------------------------------------
   // Drop element from the stack
-  drop := method(lst := lst remove(lst at(lst size-1)))
+  drop := method(lst removeAt(lst size-1))
 
   // ------------------------------------------------
   // Pop element of the stack
@@ -37,9 +37,9 @@ Stack := Object clone do(
     if(lst size != 0, 
       l := lst last
       self drop
-      return l
+      return l,
+      return nil
     )
-    return nill
   )
 
   // ------------------------------------------------
@@ -106,7 +106,7 @@ Stack := Object clone do(
     if(lst size >= 2,
       l1 := self pop
       l2 := self pop
-      lst append(l2, l1),
+      lst append(l1, l2),
 
       Exception raise("Stack underflow")
     )
@@ -165,7 +165,7 @@ Stack := Object clone do(
     if(lst size >= 2,
       l1 := self pop
       self dup
-      lst append(l1)
+      lst append(l1),
 
       Exception raise("Stack underflow")
     )
